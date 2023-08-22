@@ -1,0 +1,27 @@
+#Write a program to create "BCA.txt" file which contain information about BCA course. 
+
+#count and print the total number of lines starting with ‘A’, ‘B’, and ‘C’ in "intro.txt" file. 
+
+bca_info = """BCA Course Information:
+- Bachelor of Computer Applications (BCA) is a 3-year undergraduate program.
+- It focuses on computer applications and software development.
+- BCA covers subjects like programming languages, data structures, algorithms, and more.
+- Graduates can pursue careers in software development, IT consulting, and more."""
+
+with open('BCA.txt', 'w') as bca_file:
+    bca_file.write(bca_info)
+
+# Count lines starting with 'A', 'B', and 'C' in intro.txt file
+line_count = {'A': 0, 'B': 0, 'C': 0}
+
+with open('intro.txt', 'r') as intro_file:
+    lines = intro_file.readlines()
+    for line in lines:
+        first_char = line.strip()[0]
+        if first_char in line_count:
+            line_count[first_char] += 1
+
+# Print the counts
+for char, count in line_count.items():
+    print(f"Number of lines starting with '{char}': {count}")
+
